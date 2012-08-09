@@ -1,6 +1,6 @@
 -module(ewoc_generate_data).
 
--define(ALLOWED_CHAR, "ABCDEFGHIJKLMNOPQRSTUVWXYZÅÄÖ").
+-define(ALLOWED_CHAR, "ABCDEFGHIJKLMNOPQRSTUVWXYZ").
 
 -export([binary/1, string/1, integer/1, list/1]).
 
@@ -27,11 +27,10 @@ do_actions([{Action, Option}|T], Acc) ->
     end.
 
 words([], Acc) ->
-    io:format("~s~n", [Acc]),
-    string:join(lists:reverse(Acc), " ");
+    string:join(Acc, " ");
 words([H|T], Acc) ->
     Word = do_options(H),
-    words(T, [Word | Acc]).
+    words(T, Word).
 
 random_chars(Length, AllowedChars) ->
     lists:foldl(fun(_, Acc) ->

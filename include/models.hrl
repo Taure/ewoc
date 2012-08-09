@@ -4,4 +4,4 @@
 -define(BOOK, [{title, binary},
                {amount, integer},
                {author, string}]).
--define(CARS, [{engine, {binary, [{words, 5}]}}]).
+-define(CARS, [{engine, binary}]).
