@@ -11,11 +11,11 @@ binary(Actions) ->
 string(_) ->
     "".
 
-integer(_) ->
-    0.
+integer(Actions) ->
+    do_actions(Actions, []).
 
-list(_) ->
-    [].
+list(Actions) ->
+    do_actions(Actions, []).
 
 do_actions([], Acc) ->
     Acc;
@@ -23,7 +23,14 @@ do_actions([{Action, Option}|T], Acc) ->
     case Action of
         words ->
             Words = words(Option, []),
-            do_actions(T, [Words|Acc])
+            do_actions(T, [Words|Acc]);
+        rand ->
+            {A1, A2, A3} = now(),
+            random:seed(A1,A2,A3),
+            random:uniform(Option);
+        seq ->
+            {Start, End} = Option,
+            lists:seq(Start, End)
     end.
 
 words([], Acc) ->

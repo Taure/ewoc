@@ -46,7 +46,7 @@ populate_model_aux([{Field, Type}|T], Options, Acc) ->
 
 put_data(binary, List) ->
     ewoc_generate_data:binary(List);
-put_data(integer, _) ->
-    ewoc_generate_data:integer(8);
+put_data(integer, Tuple) ->
+    ewoc_generate_data:integer(Tuple);
 put_data(string, _) ->
     ewoc_generate_data:string("").
