@@ -2,3 +2,4 @@ docs/
 deps/
 *.dump
 *.beam
+ebin/
