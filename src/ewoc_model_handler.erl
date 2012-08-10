@@ -2,11 +2,11 @@
 
 -include("models.hrl").
 
+-export([create/1]).
+
 -spec create(Proplist) -> Value | [] when
       Proplist :: list(term()),
       Value :: list(term()).
--export([create/1]).
-
 create(Proplist) ->
     create_aux(Proplist, []).
 
@@ -14,12 +14,18 @@ create(Proplist) ->
 %%% Internal Functions
 %%%
 
+-spec create_aux(term(), list(term())) -> list(term()).
 create_aux([], Acc) ->
     Acc;
 create_aux([{Modelname, N, Options}|T], Acc) ->
     Listo = create_model_object(Modelname, N, Options, []),
     create_aux(T, [{Modelname, Listo} | Acc]).
 
+-spec create_model_object(Name, N, Options, Acc) -> Acc when
+      Name :: atom(),
+      N :: integer(),
+      Options :: list(term()),
+      Acc :: list(term()).
 create_model_object(_, 0, _, Acc) ->
     Acc;
 create_model_object(Name, N, Options, Acc) ->
@@ -27,6 +33,7 @@ create_model_object(Name, N, Options, Acc) ->
     PopModel = populate_model(Model, Options),
     create_model_object(Name, N-1, Options, [PopModel|Acc]).
 
+-spec get_model_structure(Name :: atom()) -> list(term()).
 get_model_structure(Name) ->
     proplists:get_value(Name, ?MODELS).
 

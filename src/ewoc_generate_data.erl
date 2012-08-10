@@ -32,7 +32,7 @@ do_actions([{Action, Option}|T], Acc) ->
         rand ->
             {A1, A2, A3} = now(),
             random:seed(A1,A2,A3),
-            random:uniform(Option);
+            random_number(Option);
         seq ->
             {Start, End} = Option,
             lists:seq(Start, End)
@@ -72,3 +72,17 @@ to_binary(Value) when is_integer(Value) ->
     list_to_binary(integer_to_list(Value));
 to_binary(Value) when is_list(Value) ->
     list_to_binary(Value).
+
+random_number(Option) when is_integer(Option) ->
+    random:uniform(Option);
+random_number(Option) ->
+    case lists:keysearch(interval, 1, Option) of
+        {value, Tuple} ->
+            {_, Value} = Tuple,
+            do_interval_number(Value);
+        false ->
+            ok
+    end.
+
+do_interval_number({Min, Max}) ->
+    random:uniform(Max - Min) + Min.

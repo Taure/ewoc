@@ -1,4 +1,3 @@
-docs/
 deps/
 *.dump
 *.beam
