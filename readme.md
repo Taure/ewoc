@@ -52,7 +52,7 @@ Start application with start.sh
 
 
  ewoc_model_handler:create([{book, 3,
-                                      [{author, [{words, [{ws, [6, 20]}]}]}]
+                                      [{author, [{words, [{wsize, [6, 20]}]}]}]
                                       }]).
 
 This will create three books with field author populated with words,
@@ -64,7 +64,7 @@ and the size on the two words will be 6 and 20 chars.
 Start application with start.sh
 
     Eshell V5.9.1  (abort with ^G)
-    1> ewoc_model_handler:create([{book, 3, [{title, [{words, [{ws, [6, 20]}]}]}]}]).
+    1> ewoc_model_handler:create([{book, 3, [{title, [{words, [{wsize, [6, 20]}]}]}]}]).
     [{book,[[{author,[]},
              {amount,0},
              {title,<<"ENqnSWYmWFbxvHQWaFod HJFudP">>}],
