@@ -75,14 +75,8 @@ to_binary(Value) when is_list(Value) ->
 
 random_number(Option) when is_integer(Option) ->
     random:uniform(Option);
-random_number(Option) ->
-    case lists:keysearch(interval, 1, Option) of
-        {value, Tuple} ->
-            {_, Value} = Tuple,
-            do_interval_number(Value);
-        false ->
-            ok
-    end.
+random_number({Min, Max}) ->
+    do_interval_number(Min, Max).
 
-do_interval_number({Min, Max}) ->
+do_interval_number(Min, Max) ->
     random:uniform(Max - Min) + Min.

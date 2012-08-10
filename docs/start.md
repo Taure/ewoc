@@ -29,7 +29,7 @@ Rand returns random number. Either in a interval or as a single random number.
 
 Will randomize a number from 0 to 40 and return it to field amount.
 
-    [{amount, [{rand, [{interval, {6, 20}}]}]}]
+    [{amount, [{rand, {6, 20}}]}]
 
 Will randomize a number between 6 and 20 and return it to field amount.
 
