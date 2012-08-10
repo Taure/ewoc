@@ -61,7 +61,7 @@ create_word(N) ->
 -spec do_options(tuple()) -> list().
 do_options({Action, Option}) ->
     case Action of
-        ws ->
+        wsize ->
             [create_word(X) || X<-Option]
     end.
 

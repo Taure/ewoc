@@ -39,7 +39,7 @@ your model.
 But for now we must tell ewoc to populate data to the model.
 
             ewoc_model_handler:create([{book, 3,
-                                      [{author, [{words, [{ws, [6, 20]}]}]}]
+                                      [{author, [{words, [{wsize, [6, 20]}]}]}]
                                       }]).
 
 This will create three books with field author populated with words,
