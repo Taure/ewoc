@@ -63,14 +63,14 @@ and the size on the two words will be 6 and 20 chars.
 
 Start application with start.sh
 
-  Eshell V5.9.1  (abort with ^G)
-  1> ewoc_model_handler:create([{book, 3, [{title, [{words, [{wsize, [6, 20]}]}]}]}]).
-  [{book,[[{author,[]},
-           {amount,[]},
-           {title,<<"HJFudP ENqnSWYmWFbxvHQWaFod">>}],
-          [{author,[]},
-           {amount,[]},
-           {title,<<"RUbkjr uLpEPUTIuFDZccbaQnrR">>}],
-          [{author,[]},
-           {amount,[]},
-           {title,<<"FqAXLx ZEdquyDavxlDiKkhFyIV">>}]]}]
+    Eshell V5.9.1  (abort with ^G)
+    1> ewoc_model_handler:create([{book, 3, [{title, [{words, [{wsize, [6, 20]}]}]}]}]).
+    [{book,[[{author,[]},
+             {amount,[]},
+             {title,<<"HJFudP ENqnSWYmWFbxvHQWaFod">>}],
+            [{author,[]},
+             {amount,[]},
+             {title,<<"RUbkjr uLpEPUTIuFDZccbaQnrR">>}],
+            [{author,[]},
+             {amount,[]},
+             {title,<<"FqAXLx ZEdquyDavxlDiKkhFyIV">>}]]}]
