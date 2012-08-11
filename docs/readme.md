@@ -4,7 +4,8 @@
 
 Types supported now in model is binary and integer.
 
-    -define(BOOK, [{author, binary},
+    -define(BOOK, [{key, binary},
+                   {author, binary},
                    {amount, integer},
                    {title, binary}]).
 
@@ -34,3 +35,11 @@ Will randomize a number from 0 to 40 and return it to field amount.
 Will randomize a number between 6 and 20 and return it to field amount.
 
 Depending on type in the model it will be as a integer or binary.
+
+### uuid ###
+
+Uuid will use the uuid application to generate a uuid using uuid:get_v4().
+
+    [{key, [{uuid, []}]}]
+
+This will generate a uuid to the field key.

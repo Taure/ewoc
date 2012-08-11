@@ -10,20 +10,24 @@ should be created. Still under developing.
 
 Download the repo from Git.
 
+    make start
+
+This will start the application.
+
 ## Examples ##
 
 The system will need a model.hrl file as a comfiguration file, later
 it maybe will be a config file. But at start it is a .hrl file.
 
-            -define(MODELS, [{book, ?BOOK},
-                             {car, ?CAR}]).
+    -define(MODELS, [{book, ?BOOK},
+                     {car, ?CAR}]).
 
-            -define(BOOK, [{author, binary},
-                           {title, string}]).
+    -define(BOOK, [{author, binary},
+                   {title, binary}]).
 
-            -define(CAR, [{engine, binary},
-                          {tires, binary},
-                          {doors, integer}]).
+    -define(CAR, [{engine, binary},
+                  {tires, binary},
+                  {doors, integer}]).
 
 This will give ewoc information on how it should build the different
 models and get information on how to populate them. What types fields
@@ -61,7 +65,7 @@ and the size on the two words will be 6 and 20 chars.
 
 ## Example ##
 
-Start application with start.sh
+    make start
 
     Eshell V5.9.1  (abort with ^G)
     1> ewoc_model_handler:create([{book, 3, [{title, [{words, [{wsize, [6, 20]}]}]}]}]).

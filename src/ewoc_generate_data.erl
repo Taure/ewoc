@@ -35,7 +35,9 @@ do_actions([{Action, Option}|T], Acc) ->
             random_number(Option);
         seq ->
             {Start, End} = Option,
-            lists:seq(Start, End)
+            lists:seq(Start, End);
+        uuid ->
+            uuid:get_v4()
     end.
 
 -spec words(list(), list()) -> list().
@@ -71,7 +73,10 @@ do_options({Action, Option}) ->
 to_binary(Value) when is_integer(Value) ->
     list_to_binary(integer_to_list(Value));
 to_binary(Value) when is_list(Value) ->
-    list_to_binary(Value).
+    list_to_binary(Value);
+to_binary(Value) when is_binary(Value) ->
+    Value.
+
 
 random_number(Option) when is_integer(Option) ->
     random:uniform(Option);
