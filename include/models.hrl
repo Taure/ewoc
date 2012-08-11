@@ -3,5 +3,5 @@
 
 -define(BOOK, [{title, binary},
                {amount, integer},
-               {author, string}]).
+               {author, binary}]).
 -define(CARS, [{engine, binary}]).

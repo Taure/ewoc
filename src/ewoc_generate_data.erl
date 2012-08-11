@@ -37,7 +37,10 @@ do_actions([{Action, Option}|T], Acc) ->
             {Start, End} = Option,
             lists:seq(Start, End);
         uuid ->
-            uuid:get_v4()
+            uuid:get_v4();
+        mfa ->
+            {Module, Function, Args} = Option,
+            erlang:apply(Module, Function, Args)
     end.
 
 -spec words(list(), list()) -> list().

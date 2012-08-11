@@ -43,3 +43,31 @@ Uuid will use the uuid application to generate a uuid using uuid:get_v4().
     [{key, [{uuid, []}]}]
 
 This will generate a uuid to the field key.
+
+### mfa ###
+
+Added a mfa functionality now, we can use other modules to generate
+data if we want.
+
+This is our module:
+
+    -module(user).
+
+    -export([start/0, return/1]).
+
+    start() ->
+        <<"awesome">>.
+
+    return(N) ->
+        N + 1.
+
+
+    Erlang R15B01 (erts-5.9.1) [source] [64-bit] [smp:3:3] [async-threads:0] [kernel-poll:false]
+
+    Eshell V5.9.1  (abort with ^G)
+    (ewoc@127.0.0.1)1> ewoc_model_handler:create([{book, 2, [{author, [{mfa, {user, start, []}}]}, {title, [{mfa, {user, return, [4]}}]}]}]).
+    [{book,[[{author,<<"awesome">>},{amount,[]},{title,<<"5">>}],
+           [{author,<<"awesome">>},{amount,[]},{title,<<"5">>}]]}]
+
+
+
